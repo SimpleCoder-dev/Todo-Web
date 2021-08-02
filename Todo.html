@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<style>
+ *{
+ padding:0px;
+ margin:0px;
+ background: black;
+ }
+ 
+ #adding{
+ padding:50px;
+ text-align:center;
+ }
+ 
+ input{
+ outline:none;
+ height:40px;
+ margin-right:3px;
+ background: white;
+ border:solid 2px white;
+ border-radius:10px;
+ }
+ 
+ #btnAdd{
+ background:white;
+ outline:none;
+ height:40px;
+ border:solid 2px white;
+ border-radius:10px;
+ }
+ 
+ #btnAdd:hover{
+ background:lightgrey;
+ border:solid 2px lightgrey;
+ }
+ 
+ #todoDiv{
+ background:white;
+ height:40px;
+ width:350px;
+ padding:5px;
+ margin-bottom:10px;
+ border-radius:10px;
+ }
+ 
+ #del{
+ float: right;
+ background:white;
+ height:30px;
+ width:50px;
+ margin-left:5px;
+ border:solid 2px black;
+ border-radius:5px;
+ }
+
+ 
+ .h1{
+ text-align:center;
+ color:white;
+ }
+ 
+  #done{
+ float: right;
+ background:white;
+ height:30px;
+ width:50px;
+ border:solid 2px black;
+ border-radius:5px;
+ }
+ 
+ del{
+   background: white;
+ }
+ 
+ #pid{
+   background: white;
+ }
+</style>
+
+<body>
+
+<h1 class="h1">TODO</h1>
+	<div id="adding">
+	<input type="text" id="todo" placeholder="Write Your Todo"/>
+<button id="btnAdd">Add Todo</button>
+		</div>
+		
+		<script>
+	
+	var btnAdd = document.getElementById('btnAdd');
+	
+	
+	var todoDiv = document.createElement('div');
+	todoDiv.id = 'todoDiv';
+	
+
+	
+	btnAdd.addEventListener('click',function(){
+	var input = document.getElementById('todo').value;
+	
+	if(input == ""){
+	alert('Empty is not allowed');
+	}else{
+var TodoList = input;
+	
+var todoDiv = document.createElement('div');
+	todoDiv.id = 'todoDiv';
+	
+	var p = document.createElement('span');
+	p.id = 'pid';
+	
+		var del = document.createElement('button');
+	del.id = 'del';
+	del.textContent = 'Delete';
+	
+	var btnDone = document.createElement('button');
+	btnDone.id = 'done';
+	btnDone.textContent = 'Done';
+	
+	
+	
+	
+	p.innerHTML = TodoList
+	document.body.appendChild(todoDiv).appendChild(p);
+		todoDiv.appendChild(del);
+	todoDiv.appendChild(btnDone);
+	
+	
+ 
+ 
+ btnDone.onclick = () => {
+    p.innerHTML = `<del>${TodoList}</del>`;
+  }
+ 
+	del.onclick = function(){
+		document.body.removeChild(todoDiv).removeChild(del);
+	}
+	
+	
+	
+	}
+	
+	});
+	
+	
+	
+</script
+<body>
+</html>
